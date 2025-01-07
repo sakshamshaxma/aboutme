@@ -11,10 +11,10 @@ route:
 receivers:
   - name: 'default'
     email_configs:
-    - to: 'saksham.sharma@silveredge.in'
-      from: 'noreply@spartanpokerlive.com'
+    - to: 'abc@xyz'
+      from: 'noreply@abc.com'
       smarthost: 'email-smtp.ap-south-1.amazonaws.com:587'
-      auth_username: 'AKIA5MC3IFILRRWY24II'
-      auth_password: 'BAnpuT9zVDFIfujOqcPZLsiI21nryJUQk3U8saP0ubwK'
+      auth_username: 'AKIA'
+      auth_password: 'BAnpu'
 
 
