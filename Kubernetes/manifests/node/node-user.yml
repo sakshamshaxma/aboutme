@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  name: node-user-deployment
+  labels:
+    app: node-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-user
+  template:
+    metadata:
+      labels:
+        app: node-user
+    spec:
+      containers:
+       - name: node-user
+         image: 919314377239.dkr.ecr.ap-south-1.amazonaws.com/user:229
+         envFrom:
+          - secretRef:
+                name: user-secret
+         volumeMounts:
+          - name: tz-config
+            mountPath: /etc/localtime
+         resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+         limits:
+           memory: "500Mi"
+           cpu: "200m"
+      imagePullSecrets:
+        name: ecr-secret
+      volumes:
+       - name: tz-config
+         hostPath:
+          path: "/usr/share/zoneinfo/Asia/Calcutta"

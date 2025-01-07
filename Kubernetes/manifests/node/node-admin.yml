@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  name: node-admin-deployment
+  labels:
+    app: node-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-admin
+  template:
+    metadata:
+      labels:
+        app: node-admin
+    spec:
+      containers:
+      - name: node-admin
+        image: 919314377239.dkr.ecr.ap-south-1.amazonaws.com/admin:62
+        envFrom:
+        - secretRef:
+            name: admin-secret
+        volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "500Mi"
+            cpu: "200m"
+      imagePullSecrets:
+      - name: ecr-secret
+      volumes:
+      - name: tz-config
+        hostPath:
+          path: "/usr/share/zoneinfo/Asia/Calcutta"
+

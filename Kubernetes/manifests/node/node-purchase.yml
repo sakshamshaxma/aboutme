@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  name: node-purchase-deployment
+  labels:
+    app: node-purchase
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-purchase
+  template:
+    metadata:
+      labels:
+        app: node-purchase
+    spec:
+      containers:
+       - name: node-purchase
+         image: 919314377239.dkr.ecr.ap-south-1.amazonaws.com/purchase:250
+         envFrom:
+          - secretRef:
+                name: purchase-secret
+         volumeMounts:
+          - name: tz-config
+            mountPath: /etc/localtime
+         resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+         limits:
+           memory: "500Mi"
+           cpu: "200m"
+      imagePullSecrets:
+      - name: ecr-secret
+      volumes:
+        - name: tz-config
+          hostPath:
+           path: "/usr/share/zoneinfo/Asia/Calcutta"

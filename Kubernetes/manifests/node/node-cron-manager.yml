@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  name: node-cron-manager-deployment
+  labels:
+    app: node-cron-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-cron-manager
+  template:
+    metadata:
+      labels:
+        app: node-cron-manager
+    spec:
+      terminationGracePeriodSeconds: 15
+      containers:
+       - name: node-cron-manager
+         image: 919314377239.dkr.ecr.ap-south-1.amazonaws.com/cron_manager:6
+         imagePullPolicy: "Always"
+         envFrom:
+          - secretRef:
+                name: cron-manager-secret
+         volumeMounts:
+          - name: tz-config
+            mountPath: /etc/localtime
+         resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "500Mi"
+            cpu: "200m"    
+      imagePullSecrets:
+      - name: ecr-secret      
+      volumes:
+       - name: tz-config
+         hostPath:
+          path: "/usr/share/zoneinfo/Asia/Calcutta"

@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  name: node-gamification-deployment
+  labels:
+    app: node-gamification
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-gamification
+  template:
+    metadata:
+      labels:
+        app: node-gamification
+    spec:
+      containers:
+        - name: node-gamification
+          image: 919314377239.dkr.ecr.ap-south-1.amazonaws.com/gamification:120
+      envFrom:
+        - secretRef:
+            name: gamification-secret
+      volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+      resources:
+        requests:
+          memory: 128Mi
+          cpu: 100m
+        limits:
+          memory: 500Mi
+          cpu: 200m
+      imagePullSecrets:
+        - name: ecr-secret
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Calcutta

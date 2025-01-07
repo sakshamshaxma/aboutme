@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: production
+  name: node-website-service
+  labels:
+    app: node-website
+spec:
+  selector:
+    app: node-website
+  ports:
+    - protocol: TCP
+      port: 80        # Port exposed by the service
+      targetPort: 3004  # Port on the container (update based on your app)
+  type: NodePort  # Options: ClusterIP, NodePort, LoadBalancer

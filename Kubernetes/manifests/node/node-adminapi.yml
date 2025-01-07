@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  name: node-pokeradmin-deployment
+  labels:
+    app: node-pokeradmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-pokeradmin
+  template:
+    metadata:
+      labels:
+        app: node-pokeradmin
+    spec:
+      containers:
+       - name: node-pokeradmin
+         image: 919314377239.dkr.ecr.ap-south-1.amazonaws.com/adminapi:5
+         imagePullPolicy: "Always"
+           #envFrom:
+           #- secretRef:
+           #     name: sgs-admin-gateway
+         volumeMounts:
+          - name: tz-config
+            mountPath: /etc/localtime
+         resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "500Mi"
+            cpu: "200m" 
+      imagePullSecrets:
+      - name: ecr-secret  
+      volumes:
+       - name: tz-config
+         hostPath:
+          path: "/usr/share/zoneinfo/Asia/Calcutta"

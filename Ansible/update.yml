@@ -1,0 +1,17 @@
+---
+- name: Update and upgrade all packages
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Update all packages
+      yum:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Upgrade all packages
+      command: yum upgrade -y
+      args:
+        warn: false
+

@@ -1,0 +1,20 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alert']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 12h
+  receiver: 'default'
+
+receivers:
+  - name: 'default'
+    email_configs:
+    - to: 'saksham.sharma@silveredge.in'
+      from: 'noreply@spartanpokerlive.com'
+      smarthost: 'email-smtp.ap-south-1.amazonaws.com:587'
+      auth_username: 'AKIA5MC3IFILRRWY24II'
+      auth_password: 'BAnpuT9zVDFIfujOqcPZLsiI21nryJUQk3U8saP0ubwK'
+
+

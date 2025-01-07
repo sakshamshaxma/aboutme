@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  pmm-server:
+    image: percona/pmm-server:latest
+    container_name: pmm-server
+    restart: always
+    ports:
+      - "8443:443"
+    volumes:
+      - /var/lib/docker/volumes/pmm-data/_data:/srv
+
+  pmm-client:
+    image: percona/pmm-client:latest
+    container_name: pmm-client
+    restart: always
+    ports:
+      - "8443:443"
+    volumes:
+      - /var/lib/docker/volumes/pmm-data/_data:/srv

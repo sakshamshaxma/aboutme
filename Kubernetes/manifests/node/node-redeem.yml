@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  name: node-redeem-deployment
+  labels:
+    app: node-redeem
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-redeem
+  template:
+    metadata:
+      labels:
+        app: node-redeem
+    spec:
+      containers:
+       - name: node-redeem
+         image: 919314377239.dkr.ecr.ap-south-1.amazonaws.com/redeem:79
+         envFrom:
+          - secretRef:
+                name: redeem-secret
+         volumeMounts:
+           - name: tz-config
+             mountPath: /etc/localtime
+          resources:
+           requests:
+              memory: "128Mi"
+              cpu: "100m"
+          limits:
+            memory: "500Mi"
+            cpu: "200m"
+      imagePullSecrets:
+      - name: ecr-secret
+      volumes:
+       - name: tz-config
+         hostPath:
+          path: "/usr/share/zoneinfo/Asia/Calcutta"
