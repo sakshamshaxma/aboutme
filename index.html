@@ -4,41 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Saksham Sharma - Bio</title>
+    <title>Saksham Sharma - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Saksham Sharma</h1>
-            <p>DevOps Engineer | Technology Enthusiast | Learner</p>
+            <p class="subtitle">DevOps Engineer | Technology Enthusiast | Continuous Learner</p>
+            <a href="#contact" class="btn" id="contact-btn">Contact Me</a>
         </div>
     </header>
     <main>
         <section class="about">
             <h2>About Me</h2>
-            <p>Hello! I am Saksham Sharma, a DevOps Engineer with 3 years of experience in managing Kubernetes clusters, CI/CD pipelines, and on-premise infrastructure. Passionate about automation and continuous learning.</p>
+            <p>
+                Hi, I’m Saksham Sharma, a passionate DevOps Engineer with 3 years of experience in managing 
+                Kubernetes clusters, CI/CD pipelines, and on-premise infrastructures. 
+                I specialize in automation, cloud technologies, and creating efficient development workflows.
+            </p>
         </section>
 
         <section class="skills">
             <h2>Skills</h2>
-            <ul>
-                <li>DevOps Tools: Kubernetes, Docker, Ansible, Jenkins</li>
-                <li>Programming: Python, Bash, YAML</li>
-                <li>OS: Rocky Linux, Ubuntu</li>
-                <li>Infrastructure: On-Premise Deployment, Bare Metal</li>
-            </ul>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h3>DevOps Tools</h3>
+                    <p>Kubernetes, Docker, Ansible, Jenkins</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <p>Python, Bash, YAML</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Operating Systems</h3>
+                    <p>Rocky Linux, Ubuntu</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Infrastructure</h3>
+                    <p>On-Premise Deployment, Bare Metal</p>
+                </div>
+            </div>
         </section>
 
-        <section class="contact">
+        <section id="contact" class="contact">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-            <p>GitHub: <a href="https://github.com/your-github" target="_blank">github.com/your-github</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/your-linkedin" target="_blank">linkedin.com/in/your-linkedin</a></p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:sakshamsharma150998@gmail.com">sakshamsharma150998@gmail.com</a></li>
+                <li><strong>Phone:</strong> <a href="tel:+919953113935">+91 99531 13935</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/sakshamshaxma" target="_blank">github.com/sakshamshaxma</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sakshamshaxma" target="_blank">linkedin.com/in/sakshamshaxma</a></li>
+            </ul>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Saksham Sharma. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Saksham Sharma. Designed with ❤️.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
