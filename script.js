@@ -1,2 +1,2 @@
-// Set the current year dynamically in the footer
+// Dynamic Year Update
 document.getElementById("year").textContent = new Date().getFullYear();
