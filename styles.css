@@ -7,121 +7,67 @@ body, h1, h2, p, ul, li, a {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #f8f9fa;
-    color: #333;
+    background: #000;
+    color: #fff;
     line-height: 1.6;
 }
 
-.container {
-    text-align: center;
-    padding: 20px;
+a {
+    color: #ff4500;
+    text-decoration: none;
 }
 
-/* Header Section */
+a:hover {
+    text-decoration: underline;
+}
+
 header {
-    background: linear-gradient(to right, #4e54c8, #8f94fb);
-    color: white;
+    background: #111;
     padding: 50px 20px;
     text-align: center;
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 10px;
+    color: #fff;
 }
 
 header .subtitle {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #aaa;
 }
 
-header .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #ffc107;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-}
-
-header .btn:hover {
-    background: #ffca2c;
-}
-
-/* About Section */
 section {
-    padding: 40px 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 900px;
+    padding: 20px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 800px;
+    background: #222;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
 h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #4e54c8;
-}
-
-.about p {
-    text-align: center;
-    font-size: 1.1em;
-}
-
-/* Skills Section */
-.skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.skill-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-}
-
-.skill-card h3 {
-    font-size: 1.5em;
-    color: #333;
+    font-size: 1.8em;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-/* Contact Section */
-.contact ul {
+.card {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #333;
+}
+
+.card ul {
     list-style: none;
-    text-align: center;
-    margin-top: 20px;
 }
 
-.contact li {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-}
-
-.contact a {
-    color: #4e54c8;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact a:hover {
-    text-decoration: underline;
-}
-
-/* Footer Section */
 footer {
-    background: #4e54c8;
-    color: white;
+    background: #111;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
 }

@@ -8,3 +8,4 @@ document.getElementById("contact-btn").addEventListener("click", function (e) {
 
 // Set the current year dynamically in the footer
 document.getElementById("year").textContent = new Date().getFullYear();
+//document.getElementById("year").textContent = new Date().getFullYear();
