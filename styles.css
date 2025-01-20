@@ -14,7 +14,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(to right, #04ff82, #04ff82);
+    background: linear-gradient(to right, #333, #333);
     color: white;
     padding: 80px 20px;
     text-align: center;
@@ -124,7 +124,7 @@ nav .nav-links a:hover {
 }
 
 .skill-card {
-    background: #04ff82;
+    background: #333;
     color: white;
     padding: 20px;
     border-radius: 5px;
