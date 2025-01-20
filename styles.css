@@ -30,7 +30,7 @@ body {
 }
 
 .hero h1 span {
-    color: #ffdd57;
+    color: #ffffff;
 }
 
 .hero p {
@@ -41,14 +41,14 @@ body {
 .hero .btn {
     text-decoration: none;
     padding: 10px 30px;
-    background: #ffdd57;
+    background: #ffffff00;
     color: #333;
     font-weight: bold;
     border-radius: 5px;
 }
 
 .hero .btn:hover {
-    background: #ffc107;
+    background: #ffffff00;
 }
 
 /* Navbar */
